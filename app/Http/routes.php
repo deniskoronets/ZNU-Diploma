@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+
+Route::group(['prefix' => 'lessons', 'as' => 'lessons.'], function() {
+	Route::get('/', ['as' => 'getList', 'uses' => 'LessonsController@getList']);
+	Route::any('new', ['as' => 'create', 'uses' => 'LessonsController@create']);
+
+	Route::group(['prefix' => 'single'], function() {
+		Route::get('/', ['as' => 'getSingleList', 'uses' => 'LessonsController@getSingleList']);
+	});
+});
