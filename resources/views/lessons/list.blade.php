@@ -3,7 +3,9 @@
 @section('content')
 <h1>Расписание занятий</h1>
 
-<a class='btn btn-success' href='{{ route('lessons.create') }}'>Добавить занятие</a>
+<p>
+	<a class='btn btn-success' href='{{ route('lessons.create') }}'>Добавить занятие</a>
+</p>
 
 <table class='table'>
     @foreach ($daysOfWeek as $dayId => $dayText)

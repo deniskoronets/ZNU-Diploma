@@ -3,6 +3,10 @@
 @section('content')
 
     <h1>Список разовых занятий</h1>
+    <p>
+        <a href="{{ route('lessons.single.createSingle') }}" class="btn btn-success">Добавить занятие</a>
+        <a href="{{ route('lessons.single.singleToPdf') }}" class="btn btn-success">Экспорт в PDF</a>
+    </p>
     <table class="table table-bordered">
         <thead>
             <tr>

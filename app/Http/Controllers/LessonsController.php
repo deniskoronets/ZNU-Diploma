@@ -22,11 +22,21 @@ class LessonsController extends Controller
 		$this->lessons = $lessonsRepository;
 	}
 
+	public function createSingle()
+	{
+		return '';
+	}
+
 	public function getSingleList()
 	{
 		return view('lessons.single.list', [
 			'lessons' => $this->lessons->getSingleLessonsByUserId(Auth::user()->id),
 		]);
+	}
+	
+	public function singleToPdf()
+	{
+		return '';
 	}
 
     public function getList()

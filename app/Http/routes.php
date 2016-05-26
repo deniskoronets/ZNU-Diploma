@@ -19,7 +19,14 @@ Route::group(['prefix' => 'lessons', 'as' => 'lessons.'], function() {
 	Route::get('/', ['as' => 'getList', 'uses' => 'LessonsController@getList']);
 	Route::any('new', ['as' => 'create', 'uses' => 'LessonsController@create']);
 
-	Route::group(['prefix' => 'single'], function() {
+	Route::group(['prefix' => 'single', 'as' => 'single.'], function() {
 		Route::get('/', ['as' => 'getSingleList', 'uses' => 'LessonsController@getSingleList']);
+		Route::any('/new', ['as' => 'createSingle', 'uses' => 'LessonsController@createSingle']);
+		Route::get('/download', ['as' => 'singleToPdf', 'uses' => 'LessonsController@singleToPdf']);
 	});
+});
+
+Route::group(['prefix' => 'load', 'as' => 'load.'], function() {
+	Route::get('/', ['as' => 'getList', 'uses' => 'LoadController@getList']);
+	Route::any('/new', ['as' => 'create', 'uses' => 'LoadController@create']);
 });

@@ -53,8 +53,8 @@
 
                             <ul class="dropdown-menu" role="menu">
 		                        <li><a href="{{ route('lessons.getList') }}">Расписание</a></li>
-		                        <li><a href="{{ route('lessons.getSingleList') }}">Разовые занятия</a></li>
-		                        <li><a href="{{ url('/logout') }}">Нагрузка</a></li>
+		                        <li><a href="{{ route('lessons.single.getSingleList') }}">Разовые занятия</a></li>
+		                        <li><a href="{{ route('load.getList') }}">Нагрузка</a></li>
 		                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
