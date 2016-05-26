@@ -161,6 +161,7 @@ return [
 		 */
 		Bican\Roles\RolesServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
+		Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
 	],
 
 	/*
@@ -208,6 +209,7 @@ return [
 		'View' => Illuminate\Support\Facades\View::class,
 
 		'PDF' => Barryvdh\DomPDF\Facade::class,
+		'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
 	],
 
 ];
