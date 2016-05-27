@@ -30,3 +30,20 @@ Route::group(['prefix' => 'load', 'as' => 'load.'], function() {
 	Route::get('/', ['as' => 'getList', 'uses' => 'LoadController@getList']);
 	Route::any('/new', ['as' => 'create', 'uses' => 'LoadController@create']);
 });
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
+
+	Route::get('/', ['uses' => 'Admin\DashboardController@index', 'as' => 'dashboard']);
+
+	Route::group(['prefix' => 'users', 'as' => 'users.'], function() {
+		Route::get('/', ['uses' => 'Admin\UsersController@getList', 'as' => 'getList']);
+		Route::any('new', ['uses' => 'Admin\UsersController@create', 'as' => 'create']);
+		Route::any('{id}/edit', ['uses' => 'Admin\UsersController@update', 'as' => 'update']);
+	});
+
+	Route::group(['prefix' => 'faculties', 'as' => 'faculties.'], function() {
+		Route::get('/', ['uses' => 'Admin\FacultiesController@getList', 'as' => 'getList']);
+		Route::any('new', ['uses' => 'Admin\FacultiesController@create', 'as' => 'create']);
+		Route::any('{id}/edit', ['uses' => 'Admin\FacultiesController@update', 'as' => 'update']);
+	});
+});
