@@ -63,6 +63,26 @@ class LessonsRepository
     	return $lessons;
 	}
 
+	public function update($id, Request $request)
+	{
+		$facultyGroup = FacultyGroup::findOrFail($request->input('faculty_group'));
+
+		$lesson = Lesson::findOrFail($id);
+
+		$lesson->update([
+			'user_id' => Auth::user()->id,
+			'faculty_id' => $facultyGroup->faculty_id,
+			'group_id' => $request->input('faculty_group'),
+			'lesson_type_id' => $request->input('lesson_type'),
+			'discipline_id' => $request->input('discipline'),
+			'weekday' => $request->input('day_of_week'),
+			'is_numerator' => 1,
+			'time_start' => $request->input('time_start'),
+			'year' => $request->input('year'),
+			'semester' => $request->input('semester'),
+		]);
+	}
+
     public function create(Request $request)
     {
         $facultyGroup = FacultyGroup::findOrFail($request->input('faculty_group'));
@@ -80,4 +100,15 @@ class LessonsRepository
             'semester' => $request->input('semester'),
         ]);
     }
+
+    private $startSemesterDay = [
+        1 => '1.09',
+        2 => '1.02',
+    ];
+
+    public function getCurrentTypeOfWeek()
+    {
+        //if (date(''))
+    }
+
 }

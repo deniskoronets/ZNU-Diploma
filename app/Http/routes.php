@@ -18,6 +18,9 @@ Route::get('/', 'HomeController@index');
 Route::group(['prefix' => 'lessons', 'as' => 'lessons.'], function() {
 	Route::get('/', ['as' => 'getList', 'uses' => 'LessonsController@getList']);
 	Route::any('new', ['as' => 'create', 'uses' => 'LessonsController@create']);
+	Route::any('/{id}/edit', ['as' => 'update', 'uses' => 'LessonsController@update']);
+	Route::get('/{id}/delete', ['as' => 'delete', 'uses' => 'LessonsController@delete']);
+	Route::get('/download', ['as' => 'toPdf', 'uses' => 'LessonsController@toPdf']);
 
 	Route::group(['prefix' => 'single', 'as' => 'single.'], function() {
 		Route::get('/', ['as' => 'getSingleList', 'uses' => 'LessonsController@getSingleList']);
@@ -33,7 +36,7 @@ Route::group(['prefix' => 'load', 'as' => 'load.'], function() {
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 
-	Route::get('/', ['uses' => 'Admin\DashboardController@index', 'as' => 'dashboard']);
+	Route::get('/', ['uses' => 'Admin\DashboardController@index', 'as' => 'dashboard.index']);
 
 	Route::group(['prefix' => 'users', 'as' => 'users.'], function() {
 		Route::get('/', ['uses' => 'Admin\UsersController@getList', 'as' => 'getList']);

@@ -52,6 +52,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ route('admin.dashboard.index') }}">Админцентр</a></li>
 		                        <li><a href="{{ route('lessons.getList') }}">Расписание</a></li>
 		                        <li><a href="{{ route('lessons.single.getSingleList') }}">Разовые занятия</a></li>
 		                        <li><a href="{{ route('load.getList') }}">Нагрузка</a></li>
