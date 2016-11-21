@@ -55,7 +55,7 @@
                                 <li><a href="{{ route('admin.dashboard.index') }}">Админцентр</a></li>
 		                        <li><a href="{{ route('lessons.getList') }}">Расписание</a></li>
 		                        <li><a href="{{ route('lessons.single.getSingleList') }}">Разовые занятия</a></li>
-		                        <li><a href="{{ route('load.getList') }}">Нагрузка</a></li>
+		                        <li><a href="{{ route('load.planned') }}">Нагрузка</a></li>
 		                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -66,6 +66,12 @@
     </nav>
 
     <div class='container'>
+
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -78,6 +84,8 @@
         @endif
 
     	@yield('content')
+
+    	<div style='height: 20px'></div>
 	</div>
 
     <!-- JavaScripts -->

@@ -33,31 +33,8 @@
 				</select>
 			</div>
 			<div class='form-group'>
-				<label>День недели</label>
-				<select name='day_of_week' class='form-control'>
-					@foreach ($weekDays as $weekDayId => $weekDay)
-					<option value='{{ $weekDayId }}'
-						@if (old('day_of_week', $lesson->week_day) == $weekDayId) SELECTED @endif
-					>{{ $weekDay }}</option>
-					@endforeach
-				</select>
-			</div>
-			<div class='form-group checkbox'>
-				@if ($lesson->exists)
-				<?php $t = 'radio';?>
-				@else
-				<?php $t = 'checkbox';?>
-				@endif
-				<label><input type='{{ $t }}' name='weekType[1]'
-			  		@if (old('weekType[1]', $lesson->is_numerator === '1' ? 1 : null)) CHECKED @endif
-				> Числитель</label>
-				<label><input type='{{ $t }}' name='weekType[2]'
-				  	@if (old('weekType[2]', $lesson->is_numerator === '0' ? 1 : null)) CHECKED @endif
-				> Знаменатель</label>
-			</div>
-			<div class='form-group'>
-				<label>Время начала</label>
-				<input type='text' name='time_start' class='form-control' value="{{ old('time_start', $lesson->time_start) }}">
+				<label>Дата и время проведения</label>
+				<input type='text' name='date_of' class='form-control' value="{{ old('date_of', (new \DateTime($lesson->date_of))->format('Y-m-d H:i')) }}" placeholder="{{ date('Y-m-d H:i') }}">
 			</div>
 			<div class='form-group'>
 				<label>Учебный год</label>
